@@ -16,6 +16,7 @@ import Accounts from "./pages/Accounts";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import VerifyEmailPage from "./components/VerifyEmailPage";
+import RegistrationSuccess from "./components/RegistrationSuccess";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
               <Routes>
                 <Route path="/auth" element={<Auth />} />
                 <Route path="/auth/verify-email" element={<VerifyEmailPage/>} />
+                <Route path="/auth/success" element={<RegistrationSuccess/>} />
                 <Route
                   path="/"
                   element={

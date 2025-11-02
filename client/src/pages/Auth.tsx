@@ -39,7 +39,7 @@ export default function Auth() {
     const success = await register(name, email, password);
     if (success) {
       toast.success('Registration successful!');
-      //navigate('/dashboard');
+      navigate('/auth/success');
     } else {
       toast.error('Failed to register. Please try again.');
     }

@@ -72,20 +72,8 @@ export const Sidebar = () => {
             )}
           </NavLink>
         ))}
-      </nav>
-
-      {!collapsed && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="p-4 m-3 rounded-xl bg-gradient-primary text-primary-foreground"
-        >
-          <p className="text-sm font-semibold mb-1">💡 AI Tip</p>
-          <p className="text-xs opacity-90">
-            You're on track to save $500 this month!
-          </p>
-        </motion.div>
-      )}
+      </nav>   
+     
     </motion.aside>
   );
 };
