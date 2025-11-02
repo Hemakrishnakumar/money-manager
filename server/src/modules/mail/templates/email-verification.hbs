@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Verification</title>
+  <style>
+    body {
+      background-color: #f9fafb;
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 480px;
+      background: #ffffff;
+      margin: 40px auto;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+    .logo {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #3b82f6;
+      margin-bottom: 24px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .message {
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      background-color: #3b82f6;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background-color: #2563eb;
+    }
+    .footer {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 32px;
+      text-align: center;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Money Manager</div>
+    <div class="title">Verify Your Email</div>
+    <div class="message">
+      Hi {{name}},<br />
+      Thanks for signing up! Please confirm your email address by clicking the button below.
+    </div>
+    <div style="text-align: center;">
+      <a href="{{verificationLink}}" class="button" target="_blank">Verify Email</a>
+    </div>
+    <div class="message" style="margin-top: 24px;">
+      This link will expire in {{expiresIn}}. If you didn’t create this account, you can safely ignore this email.
+    </div>
+    <div class="footer">
+      &copy; {{year}} Money Manager. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
