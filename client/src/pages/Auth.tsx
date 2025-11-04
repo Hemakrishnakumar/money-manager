@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth, User } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,7 @@ import { Wallet } from 'lucide-react';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { callApi } from '@/api/apiService';
+import { useError } from '@/contexts/ErrorContext';
 
 type LoginFormValues = {
   email: string;
@@ -27,8 +28,10 @@ export default function Auth() {
   const { setUser, isAuthenticated } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [logErrors, setLogErrors] = useState("")
+  const [logErrors, setLogErrors] = useState("");
+  const { showError} = useError();
   // Login form
   const {
     register: registerLogin,
@@ -53,7 +56,8 @@ export default function Auth() {
   }});
 
   if (isAuthenticated) {
-    navigate('/dashboard');
+    const redirectTo = location.state?.from || '/dashboard';
+    navigate(redirectTo, { replace: true });
   }
 
   function onLoginSuccess(data: User) {

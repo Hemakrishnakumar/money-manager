@@ -24,13 +24,13 @@ const queryClient = new QueryClient();
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? <>{children}</> : <Navigate to="/auth" />;
+  return isAuthenticated ? <>{children}</> : <Navigate to="/auth" state={{ from: window.location.pathname }} replace/>;
 };
 
 const App = () => {
-  // const { showError } = useError();
+  const { showError } = useError()
  
-  // registerErrorHandler(showError);
+  registerErrorHandler(showError);
 
   return (
   <QueryClientProvider client={queryClient}>

@@ -9,7 +9,9 @@ const isProduction = true;
 const Root = (
   isProduction ? (
     <ErrorBoundary>
-      <App />
+      <ErrorProvider>
+        <App />
+      </ErrorProvider>
     </ErrorBoundary>
   ) : (
     <App />
